@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Example</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to CSS file -->
+</head>
+<body>
+
+  <h1>Available API Endpoints</h1>
+  <ul>
+    <li><a href="/api/houses">All Houses</a></li>
+  </ul>
+
+  <div id="houses-list"></div>
+
+  <script>
+    // Fetch the list of houses when the page loads
+    fetch('/api/houses')
+      .then(response => response.json())
+      .then(data => {
+        const listDiv = document.getElementById('houses-list');
+        data.forEach(house => {
+          const houseElement = document.createElement('div');
+          houseElement.innerHTML = `
+            <h2>${house.name}</h2>
+            <p>${house.location}</p>
+            <p>Price: ${house.price}</p>
+          `;
+          listDiv.appendChild(houseElement);
+        });
+      })
+      .catch(error => console.error('Error fetching houses:', error));
+  </script>
+  
+</body>
+</html>
