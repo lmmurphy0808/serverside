@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../bakeryshop"
+		},
+		{
+			"name": "serverside",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
